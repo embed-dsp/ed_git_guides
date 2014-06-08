@@ -53,6 +53,7 @@ git mv ...
 * Remove
 git rm ...
 
+
 --------------------------------
 Move component into server
 --------------------------------
@@ -63,5 +64,7 @@ git clone --bare foo foo.git
 mv foo.git /mnt/data1/git
 
 
-* Clone an existing repository
+--------------------------------
+Clone an existing repository
+--------------------------------
 git clone <from> <to>
