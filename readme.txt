@@ -4,7 +4,6 @@ All Rights Reserved
 
 Author:  Gudmundur Bogason <gb@embed-dsp.com>
 Created: 01-06-2014
-URL:     www.embed-dsp.com
 
 
 * Configure
@@ -24,6 +23,9 @@ git config --global user.email gb@embed-dsp.com
 git config --global core.editor emacs
 
 
+--------------------------------
+Create a new component
+--------------------------------
 * Initialize new repository
 git init
 
@@ -33,7 +35,7 @@ git add <file>
 * Get status
 git status
 
-* ...
+* Commit file
 git commit 
 
 * ...
@@ -50,6 +52,16 @@ git mv ...
 
 * Remove
 git rm ...
+
+--------------------------------
+Move component into server
+--------------------------------
+* Make a bare clone
+git clone --bare foo foo.git
+
+* Move into server
+mv foo.git /mnt/data1/git
+
 
 * Clone an existing repository
 git clone <from> <to>
