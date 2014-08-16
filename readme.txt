@@ -70,3 +70,34 @@ mv foo.git /mnt/data1/git
 Clone an existing repository
 --------------------------------
 git clone <from> <to>
+
+
+--------------------------------
+Generating SSH Keys
+--------------------------------
+* Generate a new SSH key
+ssh-keygen -t rsa -C "gb@embed-dsp.com"
+
+* Add your SSH key to GitHub
+kenny ...
+
+* Test everything out
+ssh -T git@github.com
+
+
+--------------------------------
+Caching your GitHub password in Git
+--------------------------------
+git config --global credential.helper cache
+
+
+--------------------------------
+Fork A Repo
+--------------------------------
+git clone https://github.com/gudme/embed-dsp.git
+
+
+--------------------------------
+Pushing to a remote
+--------------------------------
+git push origin master
