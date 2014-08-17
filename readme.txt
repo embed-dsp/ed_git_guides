@@ -40,31 +40,17 @@ ssh -T git@github.com
 
 
 --------------------------------
-Clone an existing repository
---------------------------------
-git clone <from> <to>
-
-git clone https://github.com/gudme/embed-dsp.git
-
-
---------------------------------
-Create a new component
+Local repository
 --------------------------------
 * Initialize new repository
 git init
 
-* Add new file
-git add <file>
-
 * Get status
 git status
 
-* Commit file
-git commit 
-git commit --amend
-
-* ...
+* View commit history
 git log
+git log -p
 
 * ...
 git show
@@ -72,17 +58,46 @@ git show
 * ...
 git diff
 
+* Add file for tracking or staging
+git add <file>
+
+* Undo staging a file
+git reset HEAD <file>
+
+* Undo changes to a file
+git checkout -- <file>
+
+* Commit changes (files are staged automatically)
+git commit -a -m "..."
+
+* Undo previous commit ...
+git commit --amend
+
 * Rename/Move
-git mv ...
+git mv <from> <to>
 
 * Remove file from version control without removing it from workspace
 git rm --cached <file>
 
-* Push changes back to master branch in origin server
-git push origin master
+--------------------------------
+Remote repositories
+--------------------------------
+* Clone an existing repository
+git clone <from> <to>
+git clone https://github.com/gudme/embed-dsp.git
 
 * Show information about origin server
 git remote show origin
+
+* Show the remote repositories
+git remote -v
+
+* Fetch data from origin server
+git fetch origin
+
+* Push changes back to master branch in origin server
+git push origin master
+
 
 --------------------------------
 Move component into server
