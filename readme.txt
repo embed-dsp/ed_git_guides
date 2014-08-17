@@ -80,6 +80,16 @@ git mv <from> <to>
 git rm --cached <file>
 
 --------------------------------
+Tags
+--------------------------------
+* Create an annotated tag
+git tag -a rel_0.1.0 -m "..."
+
+* Show tag
+git show rel_0.1.0
+
+
+--------------------------------
 Remote repositories
 --------------------------------
 * Clone an existing repository
