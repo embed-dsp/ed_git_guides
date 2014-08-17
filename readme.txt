@@ -79,13 +79,50 @@ git mv <from> <to>
 * Remove file from version control without removing it from workspace
 git rm --cached <file>
 
+
 --------------------------------
-Tags
+Branch
 --------------------------------
+* Show existing branches
+git branch
+git branch -v
+
+* Create a branch
+git branch br1
+
+* Checkout branch
+git checkout br1
+
+* Create and checkout a branch all in one
+git checkout -b br1
+
+* Merge br1 branch into master branch
+git checkout master
+git merge br1
+
+* Mark conflicting file as resolved
+git add <file>
+
+* Delete branch
+git branch -d br1
+
+* Show which branches have been merged in
+git branch --merged
+
+* Show which branches have not been merged in
+git branch --no-merged
+
+
+--------------------------------
+Tag
+--------------------------------
+* Show existing tags
+git tag
+
 * Create an annotated tag
 git tag -a rel_0.1.0 -m "..."
 
-* Show tag
+* Show tag details
 git show rel_0.1.0
 
 
