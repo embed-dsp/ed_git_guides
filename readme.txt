@@ -38,6 +38,7 @@ kenny ...
 * Test everything out
 ssh -T git@github.com
 
+Hello
 
 --------------------------------
 Local repository
