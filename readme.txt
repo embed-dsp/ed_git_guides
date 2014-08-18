@@ -176,7 +176,7 @@ mv foo.git /mnt/data1/git
 
 
 --------------------------------
-Workflow
+Feature Development Workflow
 --------------------------------
 * Get the latest master branch
 git pull origin master
@@ -184,8 +184,8 @@ git pull origin master
 * Create working branch from master
 git checkout master
 
-git branch wrk
-git checkout wrk
+#git branch wrk
+#git checkout wrk
 
 git checkout -b wrk
 
@@ -194,6 +194,11 @@ git checkout -b wrk
 * Get the latest master branch and rebase working branch
 git pull origin master
 git rebase master
+git rebase -i master
+
+#git fetch origin master
+#git rebase origin/master
+#git rebase -i origin/master
 
 * Run regression tests etc.
 
