@@ -55,8 +55,11 @@ git log -p
 * ...
 git show
 
-* ...
+* Show changes between workspace and staged
 git diff
+
+* Show changes between staged and repository
+git diff --cached
 
 * Add file for tracking or staging
 git add <file>
@@ -78,6 +81,16 @@ git mv <from> <to>
 
 * Remove file from version control without removing it from workspace
 git rm --cached <file>
+
+
+--------------------------------
+Stash
+--------------------------------
+* ...
+git stash save
+
+* ...
+git stash pop
 
 
 --------------------------------
@@ -145,10 +158,16 @@ git fetch origin
 * Push changes back to master branch in origin server
 git push origin master
 
+* Delete remote branch br1
+git push origin :br1
+
 
 --------------------------------
 Move component into server
 --------------------------------
+* Create a bare repository
+git init --bare /mnt/data1/git/test2.git
+
 * Make a bare clone
 git clone --bare foo foo.git
 
