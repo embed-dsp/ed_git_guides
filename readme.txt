@@ -38,7 +38,7 @@ kenny ...
 * Test everything out
 ssh -T git@github.com
 
-Hello
+
 
 --------------------------------
 Local repository
@@ -177,7 +177,7 @@ mv foo.git /mnt/data1/git
 
 
 --------------------------------
-Feature Development Workflow
+Feature Branch Workflow
 --------------------------------
 * Get the latest master branch
 git pull origin master
