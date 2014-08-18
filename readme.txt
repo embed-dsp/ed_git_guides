@@ -25,6 +25,8 @@ git config --global user.email gb@embed-dsp.com
 git config --global core.editor emacs
 git config --global credential.helper cache
 
+git config --list
+
 
 --------------------------------
 Generating SSH Key for GitHub
