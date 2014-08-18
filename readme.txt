@@ -41,6 +41,28 @@ kenny ...
 ssh -T git@github.com
 
 
+--------------------------------
+Stash
+--------------------------------
+* ...
+git stash save
+
+* ...
+git stash pop
+
+
+--------------------------------
+Tag
+--------------------------------
+* Show existing tags
+git tag
+
+* Create an annotated tag
+git tag -a rel_0.1.0 -m "..."
+
+* Show tag details
+git show rel_0.1.0
+
 
 --------------------------------
 Local repository
@@ -87,16 +109,6 @@ git rm --cached <file>
 
 
 --------------------------------
-Stash
---------------------------------
-* ...
-git stash save
-
-* ...
-git stash pop
-
-
---------------------------------
 Branch
 --------------------------------
 * Show existing branches
@@ -130,16 +142,16 @@ git branch --no-merged
 
 
 --------------------------------
-Tag
+Move component into server
 --------------------------------
-* Show existing tags
-git tag
+* Create a bare repository
+git init --bare /mnt/data1/git/test2.git
 
-* Create an annotated tag
-git tag -a rel_0.1.0 -m "..."
+* Make a bare clone
+git clone --bare foo foo.git
 
-* Show tag details
-git show rel_0.1.0
+* Move into server
+mv foo.git /mnt/data1/git
 
 
 --------------------------------
@@ -166,21 +178,29 @@ git push origin :br1
 
 
 --------------------------------
-Move component into server
---------------------------------
-* Create a bare repository
-git init --bare /mnt/data1/git/test2.git
-
-* Make a bare clone
-git clone --bare foo foo.git
-
-* Move into server
-mv foo.git /mnt/data1/git
-
-
---------------------------------
 Master Branch Workflow
 --------------------------------
+* Get the latest master branch
+#git pull origin master
+
+* add, remove, commit ... master branch
+
+* Get upstream changes and rebase local changes
+git pull --rebase origin master
+
+* Check status to see conflicting files
+git status
+
+* Resolve conflicts by editing files
+
+* Mark file as resolved
+git add <file>
+
+* Continue with the next file
+git rebase --continue
+
+* Push changes back to master branch in origin server
+git push origin master
 
 
 --------------------------------
