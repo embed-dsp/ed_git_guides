@@ -29,6 +29,16 @@ git config --list
 
 
 --------------------------------
+Generating SSH Key for kenny
+--------------------------------
+* Generate a new SSH key
+ssh-keygen -t rsa -C "gb@192.168.0.100"
+
+* Add your SSH key to kenny
+scp /home/gb/.ssh/id_rsa.pub gb@192.168.0.100:/home/gb/.ssh/authorized_keys
+
+
+--------------------------------
 Generating SSH Key for GitHub
 --------------------------------
 * Generate a new SSH key
