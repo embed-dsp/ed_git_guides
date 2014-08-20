@@ -52,26 +52,16 @@ ssh -T git@github.com
 
 
 --------------------------------
-Stash
+Move project onto server
 --------------------------------
-* ...
-git stash save
+* Either create a bare project from scratch
+git init --bare foo.git
 
-* ...
-git stash pop
+* Or clone an existing project into a bare project
+git clone --bare foo foo.git
 
-
---------------------------------
-Tag
---------------------------------
-* Show existing tags
-git tag
-
-* Create an annotated tag
-git tag -a rel_0.1.0 -m "..."
-
-* Show tag details
-git show rel_0.1.0
+* Move project onto server
+mv foo.git /mnt/data1/git
 
 
 --------------------------------
@@ -152,16 +142,26 @@ git branch --no-merged
 
 
 --------------------------------
-Move component into server
+Tag
 --------------------------------
-* Create a bare repository
-git init --bare /mnt/data1/git/test2.git
+* Show existing tags
+git tag
 
-* Make a bare clone
-git clone --bare foo foo.git
+* Create an annotated tag
+git tag -a rel_0.1.0 -m "..."
 
-* Move into server
-mv foo.git /mnt/data1/git
+* Show tag details
+git show rel_0.1.0
+
+
+--------------------------------
+Stash
+--------------------------------
+* ...
+git stash save
+
+* ...
+git stash pop
 
 
 --------------------------------
