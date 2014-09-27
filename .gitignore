@@ -1,2 +1,19 @@
 
+# Copyright (c) 2013-2014 embed-dsp
+# All Rights Reserved
+
+# $Author$
+# $Date$
+# $Revision$
+
+# Build directory
+/build/
+
+# Backup files
 *~
+
+# Python bytecode files
+*.pyc
+
+# Object files
+*.o

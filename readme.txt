@@ -2,15 +2,14 @@
 Copyright (c) 2013-2014 embed-dsp
 All Rights Reserved
 
-Author:  Gudmundur Bogason <gb@embed-dsp.com>
-Created: 01-06-2014
+$Author$
+$Date$
+$Revision$
 
 
---------------------------------
-Configure
---------------------------------
-export GIT_EDITOR=...
-
+================================
+Location of config files
+================================
 --system
     /etc/gitconfig
 
@@ -20,206 +19,257 @@ export GIT_EDITOR=...
 --local
     .git/config
 
+================================
+Basic Configuration
+================================
 git config --global user.name "Gudmundur Bogason"
 git config --global user.email gb@embed-dsp.com
 git config --global core.editor emacs
 git config --global credential.helper cache
 
+# On Linux/Mac systems enable this to change CRLF to LF when commiting
+git config --global core.autocrlf input
+
+# On Windows systems enable this to get automatic conversion between CRLF and LF
+git config --global core.autocrlf true
+
+# List the current configuration settings
 git config --list
 
+export GIT_EDITOR=...
 
---------------------------------
+
+================================
+Enable RCS keywords
+================================
+# Create RCS keyword filters and make them executeable
+git_rcskw_clean.py
+git_rcskw_smudge.py
+
+# Place the RCS keyword filters in /home/gb/bin
+
+# Tell git about the smudge and clean filters for RCS keywords
+git config --global filter.rcskw.clean  /home/gb/bin/git_rcskw_clean.py
+git config --global filter.rcskw.smudge /home/gb/bin/git_rcskw_smudge.py
+
+# Update local .gitattributes file
+.gitignore filter=rcskw
+.gitattributes filter=rcskw
+*.txt filter=rcskw
+*.sh filter=rcskw
+*.py filter=rcskw
+*.m filter=rcskw
+*.xml filter=rcskw
+*.html filter=rcskw
+*.java filter=rcskw
+*.cs filter=rcskw
+*.h filter=rcskw
+*.c filter=rcskw
+*.hpp filter=rcskw
+*.cpp filter=rcskw
+*.cxx filter=rcskw
+*.asm filter=rcskw
+*.v filter=rcskw
+*.vhd filter=rcskw
+
+# Place the following RCD kewords in the source files
+$Author$
+$Date$
+$Revision$
+
+
+================================
 Generating SSH Key for kenny
---------------------------------
-* Generate a new SSH key
+================================
+# Generate a new SSH key
 ssh-keygen -t rsa -C "gb@192.168.0.100"
 
-* Add your SSH key to kenny
+# Add your SSH key to kenny
 scp /home/gb/.ssh/id_rsa.pub gb@192.168.0.100:/home/gb/.ssh/authorized_keys
 
 
---------------------------------
+================================
 Generating SSH Key for GitHub
---------------------------------
-* Generate a new SSH key
+================================
+# Generate a new SSH key
 ssh-keygen -t rsa -C "gb@embed-dsp.com"
 
-* Add your SSH key to GitHub
+# Add your SSH key to GitHub
 kenny ...
 
-* Test everything out
+# Test everything out
 ssh -T git@github.com
 
 
---------------------------------
+================================
 Move project onto server
---------------------------------
-* Either create a bare project from scratch
+================================
+# Either create a bare project from scratch
 git init --bare foo.git
 
-* Or clone an existing project into a bare project
+# Or clone an existing project into a bare project
 git clone --bare foo foo.git
 
-* Move project onto server
+# Move project onto server
 mv foo.git /mnt/data1/git
 
 
---------------------------------
+================================
 Local repository
---------------------------------
-* Initialize new repository
+================================
+# Initialize new repository
 git init
 
-* Get status
+# Get status
 git status
 
-* View commit history
+# View commit history
 git log
 git log -p
 
-* ...
+# ...
 git show
 
-* Show changes between workspace and staged
+# Show changes between workspace and staged
 git diff
 
-* Show changes between staged and repository
+# Show changes between staged and repository
 git diff --cached
 
-* Add file for tracking or staging
+# Add file for tracking or staging
 git add <file>
 
-* Undo staging a file
+# Undo staging a file
 git reset HEAD <file>
 
-* Undo changes to a file
+# Undo changes to a file
 git checkout -- <file>
 
-* Commit changes (files are staged automatically)
+# Commit changes (files are staged automatically)
 git commit -a -m "..."
 
-* Undo previous commit ...
+# Undo previous commit ...
 git commit --amend
 
-* Rename/Move
+# Rename/Move
 git mv <from> <to>
 
-* Remove file from version control without removing it from workspace
+# Remove file from version control without removing it from workspace
 git rm --cached <file>
 
 
---------------------------------
+================================
 Branch
---------------------------------
-* Show existing branches
+================================
+# Show existing branches
 git branch
 git branch -v
 
-* Create a branch
+# Create a branch
 git branch br1
 
-* Checkout branch
+# Checkout branch
 git checkout br1
 
-* Create and checkout a branch all in one
+# Create and checkout a branch all in one
 git checkout -b br1
 
-* Merge br1 branch into master branch
+# Merge br1 branch into master branch
 git checkout master
 git merge br1
 
-* Mark conflicting file as resolved
+# Mark conflicting file as resolved
 git add <file>
 
-* Delete branch
+# Delete branch
 git branch -d br1
 
-* Show which branches have been merged in
+# Show which branches have been merged in
 git branch --merged
 
-* Show which branches have not been merged in
+# Show which branches have not been merged in
 git branch --no-merged
 
 
---------------------------------
+================================
 Tag
---------------------------------
-* Show existing tags
+================================
+# Show existing tags
 git tag
 
-* Create an annotated tag
+# Create an annotated tag
 git tag -a rel_0.1.0 -m "..."
 
-* Show tag details
+# Show tag details
 git show rel_0.1.0
 
 
---------------------------------
+================================
 Stash
---------------------------------
-* ...
+================================
+# ...
 git stash save
 
-* ...
+# ...
 git stash pop
 
 
---------------------------------
+================================
 Remote repositories
---------------------------------
-* Clone an existing repository
+================================
+# Clone an existing repository
 git clone <from> <to>
 git clone https://github.com/gudme/embed-dsp.git
 
-* Show information about origin server
+# Show information about origin server
 git remote show origin
 
-* Show the remote repositories
+# Show the remote repositories
 git remote -v
 
-* Fetch data from origin server
+# Fetch data from origin server
 git fetch origin
 
-* Push changes back to master branch in origin server
+# Push changes back to master branch in origin server
 git push origin master
 
-* Delete remote branch br1
+# Delete remote branch br1
 git push origin :br1
 
 
---------------------------------
+================================
 Master Branch Workflow
---------------------------------
-* Get the latest master branch
+================================
+# Get the latest master branch
 #git pull origin master
 
-* add, remove, commit ... master branch
+# add, remove, commit ... master branch
 
-* Get upstream changes and rebase local changes
+# Get upstream changes and rebase local changes
 git pull --rebase origin master
 
-* Check status to see conflicting files
+# Check status to see conflicting files
 git status
 
-* Resolve conflicts by editing files
+# Resolve conflicts by editing files
 
-* Mark file as resolved
+# Mark file as resolved
 git add <file>
 
-* Continue with the next file
+# Continue with the next file
 git rebase --continue
 
-* Push changes back to master branch in origin server
+# Push changes back to master branch in origin server
 git push origin master
 
 
---------------------------------
+================================
 Feature Branch Workflow
---------------------------------
-* Get the latest master branch
+================================
+# Get the latest master branch
 git pull origin master
 
-* Create working branch from master
+# Create working branch from master
 git checkout master
 
 #git branch wrk
@@ -227,9 +277,9 @@ git checkout master
 
 git checkout -b wrk
 
-* add, remove, commit ... working branch
+# add, remove, commit ... working branch
 
-* Get the latest master branch and rebase working branch
+# Get the latest master branch and rebase working branch
 git pull origin master
 git rebase master
 git rebase -i master
@@ -238,13 +288,13 @@ git rebase -i master
 #git rebase origin/master
 #git rebase -i origin/master
 
-* Run regression tests etc.
+# Run regression tests etc.
 
-* Merge working branch into master
+# Merge working branch into master
 git checkout master
 
 git merge wrk
 git merge --no-ff wrk
 
-* Update master branch
+# Update master branch
 git push origin master
