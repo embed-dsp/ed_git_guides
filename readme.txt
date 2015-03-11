@@ -8,6 +8,19 @@ $Revision$
 
 
 ================================
+...
+================================
+# File State
+Untracked           Newly created file
+Tracked             git add ...
+Modified            ...
+
+# File Location
+Working Directory   git checkout ...
+Staging Area        git add ...
+Repository          git commit ...
+
+================================
 Location of config files
 ================================
 --system
@@ -154,6 +167,9 @@ git commit --amend
 # Rename/Move
 git mv <from> <to>
 
+# Remove file from version control and from workspace
+git rm <file>
+
 # Remove file from version control without removing it from workspace
 git rm --cached <file>
 
@@ -163,6 +179,8 @@ Branch
 ================================
 # Show existing branches
 git branch
+
+# Show existing branches with the last commit
 git branch -v
 
 # Create a branch
@@ -173,6 +191,9 @@ git checkout br1
 
 # Create and checkout a branch all in one
 git checkout -b br1
+
+# See what has changed between the current branch br1 and the master branch
+git diff master
 
 # Merge br1 branch into master branch
 git checkout master
@@ -197,12 +218,17 @@ Tag
 # Show existing tags
 git tag
 
+# Show all tags from release rel_1.0.*
+git tag -l 'rel_1.0.*'
+
 # Create an annotated tag
 git tag -a rel_0.1.0 -m "..."
 
 # Show tag details
 git show rel_0.1.0
 
+# Checkout a specific tag
+git checkout rel_0.1.0
 
 ================================
 Stash
