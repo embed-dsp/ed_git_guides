@@ -227,13 +227,16 @@ git tag -a rel_0.1.0 -m "..."
 # Delete tag
 git tag -d rel_0.1.0
 
+# Delete tag from remote repository
+git push origin :refs/tags/rel_0.1.0
+
 # Show tag details
 git show rel_0.1.0
 
 # Checkout a specific tag
 git checkout rel_0.1.0
 
-# Push tags to remote ...
+# Push tags to remote repository
 git push --tags
 
 # Show the most recent tag that is reachable from a commit
