@@ -236,6 +236,9 @@ git checkout rel_0.1.0
 # Push tags to remote ...
 git push --tags
 
+# Show the most recent tag that is reachable from a commit
+git describe --tags --always
+
 ================================
 Stash
 ================================
