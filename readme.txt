@@ -230,6 +230,9 @@ git show rel_0.1.0
 # Checkout a specific tag
 git checkout rel_0.1.0
 
+# Push tags to remote ...
+git push --tags
+
 ================================
 Stash
 ================================
