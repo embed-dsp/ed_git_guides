@@ -224,6 +224,9 @@ git tag -l 'rel_1.0.*'
 # Create an annotated tag
 git tag -a rel_0.1.0 -m "..."
 
+# Delete tag
+git tag -d rel_0.1.0
+
 # Show tag details
 git show rel_0.1.0
 
