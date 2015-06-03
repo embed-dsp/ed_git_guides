@@ -195,6 +195,9 @@ git checkout -b br1
 # See what has changed between the current branch br1 and the master branch
 git diff master
 
+# See what has changed for the file foo.c between the branch br1 and the master branch
+git diff br1 master -- foo.c
+
 # Merge br1 branch into master branch
 git checkout master
 git merge br1
