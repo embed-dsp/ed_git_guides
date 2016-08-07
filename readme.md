@@ -15,6 +15,12 @@ gosense_dm_tools    | [GoSense Data Manager Tools](https://github.com/greengo/go
 gosense_dm          | [GoSense Data Manager](https://github.com/greengo/gosense_dm)
 gosense             | [GoSense](https://github.com/greengo/gosense)
 
+```python
+def foo():
+    pass
+```
+
+
 ## Folder Structure
 
 ```
