@@ -128,6 +128,25 @@ mv foo.git /mnt/data1/git
 
 
 ================================
+FIXME:
+================================
+branch  => commit
+tag     => commit
+
+commit  => tree
+
+tree    => tree
+        => blob
+
+blob
+
+
+git cat-file ...
+git ls-files ...
+
+
+
+================================
 Local repository
 ================================
 # Initialize new repository
@@ -201,6 +220,10 @@ git diff br1 master -- foo.c
 # Merge br1 branch into master branch
 git checkout master
 git merge br1
+
+# Merge a specific file foo.h from br1 branch into master branch
+git checkout master
+git checkout br1 foo.h
 
 # Mark conflicting file as resolved
 git add <file>
