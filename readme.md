@@ -3,7 +3,7 @@
 
 ## Location
 
-```
+```sh
 --system
     /etc/gitconfig
 
@@ -16,7 +16,7 @@
 
 ## Basic Configuration
 
-```
+```sh
 git config --global user.name "Gudmundur Bogason"
 git config --global user.email gb@embed-dsp.com
 git config --global core.editor emacs
@@ -36,7 +36,7 @@ export GIT_EDITOR=...
 
 ## Enable RCS keywords
 
-```
+```sh
 # Create RCS keyword filters and make them executeable
 git_rcskw_clean.py
 git_rcskw_smudge.py
@@ -74,11 +74,11 @@ $Revision: 55600e6 $
 ```
 
 
-# Generating SSH Keys
+# Generate SSH Keys
 
 ## Local server
 
-```
+```sh
 # Generate a new SSH key
 ssh-keygen -t rsa -C "gb@192.168.0.100"
 
@@ -88,7 +88,7 @@ scp /home/gb/.ssh/id_rsa.pub gb@192.168.0.100:/home/gb/.ssh/authorized_keys
 
 ## GitHub
 
-```
+```sh
 # Generate a new SSH key
 ssh-keygen -t rsa -C "gb@embed-dsp.com"
 
@@ -102,7 +102,7 @@ ssh -T git@github.com
 
 # Misc
 
-```
+```sh
 # File State
 Untracked           Newly created file
 Tracked             git add ...
@@ -130,23 +130,9 @@ git ls-files ...
 ```
 
 
-# Move project onto server
-
-```
-# Either create a bare project from scratch
-git init --bare foo.git
-
-# Or clone an existing project into a bare project
-git clone --bare foo foo.git
-
-# Move project onto server
-mv foo.git /mnt/data1/git
-```
-
-
 # Local repository
 
-```
+```sh
 # Initialize new repository
 git init
 
@@ -194,7 +180,7 @@ git rm --cached <file>
 
 # Branch
 
-```
+```sh
 # Show existing branches
 git branch
 
@@ -240,7 +226,7 @@ git branch --no-merged
 
 # Tag
 
-```
+```sh
 # Show existing tags
 git tag
 
@@ -272,7 +258,7 @@ git describe --tags --always
 
 # Stash
 
-```
+```sh
 # ...
 git stash save
 
@@ -281,9 +267,23 @@ git stash pop
 ```
 
 
+# Move project onto server
+
+```sh
+# Either create a bare project from scratch
+git init --bare foo.git
+
+# Or clone an existing project into a bare project
+git clone --bare foo foo.git
+
+# Move project onto server
+mv foo.git /mnt/data1/git
+```
+
+
 # Remote repositories
 
-```
+```sh
 # Clone an existing repository
 git clone <from> <to>
 git clone https://github.com/gudme/embed-dsp.git
@@ -309,7 +309,7 @@ git push origin :br1
 
 ## Master Branch
 
-```
+```sh
 # Get the latest master branch
 #git pull origin master
 
@@ -335,7 +335,7 @@ git push origin master
 
 ## Feature Branch
 
-```
+```sh
 # Get the latest master branch
 git pull origin master
 
@@ -373,7 +373,7 @@ git push origin master
 
 # Patching
 
-```
+```sh
 # Create a series of patches with all history for the git_* files and place in the folder ~/patches
 git format-patch -o ~/patches --root git_*
 
