@@ -20,6 +20,21 @@ Working Directory   git checkout ...
 Staging Area        git add ...
 Repository          git commit ...
 
+branch  => commit
+tag     => commit
+
+commit  => tree
+
+tree    => tree
+        => blob
+
+blob
+
+
+git cat-file ...
+git ls-files ...
+
+
 ================================
 Location of config files
 ================================
@@ -125,25 +140,6 @@ git clone --bare foo foo.git
 
 # Move project onto server
 mv foo.git /mnt/data1/git
-
-
-================================
-FIXME:
-================================
-branch  => commit
-tag     => commit
-
-commit  => tree
-
-tree    => tree
-        => blob
-
-blob
-
-
-git cat-file ...
-git ls-files ...
-
 
 
 ================================
