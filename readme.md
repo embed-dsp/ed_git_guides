@@ -124,8 +124,15 @@ tree    => tree
 
 blob
 
-# ...
-git cat-file ...
+# Show file type from SHA-1 <hash>
+git cat-file -t <hash>
+
+# Show file size from SHA-1 <hash>
+git cat-file -s <hash>
+
+# Show file content from SHA-1 <hash>
+git cat-file -p <hash>
+
 git ls-files ...
 ```
 
@@ -151,6 +158,9 @@ git diff
 
 # Show changes between staged and repository
 git diff --cached
+
+# Show changes between workspace and repository
+git diff HEAD
 
 # Add file for tracking or staging
 git add <file>
