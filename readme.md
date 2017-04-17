@@ -143,15 +143,8 @@ git ls-files ...
 # Initialize new repository
 git init
 
-# Get status
-git status
-
-# View commit history
-git log
-git log -p
-
-# ...
-git show
+# Add file for tracking or staging
+git add <file>
 
 # Show changes between workspace and staged
 git diff
@@ -162,20 +155,23 @@ git diff --cached
 # Show changes between workspace and repository
 git diff HEAD
 
-# Add file for tracking or staging
-git add <file>
-
 # Undo staging a file
 git reset HEAD <file>
 
 # Undo changes to a file
 git checkout -- <file>
 
+# Undo changes to all files
+git reset --hard
+
+# Commit changes
+git commit -m "..."
+
 # Commit changes (files are staged automatically)
 git commit -a -m "..."
 
 # Undo previous commit ...
-git commit --amend
+git commit --amend -m "..."
 
 # Rename/Move
 git mv <from> <to>
@@ -185,6 +181,27 @@ git rm <file>
 
 # Remove file from version control without removing it from workspace
 git rm --cached <file>
+
+# Get status
+git status
+
+# View commit history
+git log
+
+# View commit history in short form
+git log --oneline
+
+# View commit history in short form with HEAD, branch and tag decoration
+git log --oneline --decorate
+
+# View commit history in short form with HEAD, branch and tag decoration and branch graph
+git log --oneline --decorate --graph
+
+# View commit history with patch
+git log -p
+
+# ...
+git show
 ```
 
 
@@ -225,6 +242,9 @@ git add <file>
 
 # Delete branch
 git branch -d br1
+
+# Delete branch and force removal of commit if not referenced anymore
+git branch -D br1
 
 # Show which branches have been merged in
 git branch --merged
