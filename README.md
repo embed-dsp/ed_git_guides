@@ -1,7 +1,7 @@
 
-# Configuration Files
+# Configuration Files #
 
-## Location
+## Location ##
 
 ```sh
 --system
@@ -14,7 +14,7 @@
     .git/config
 ```
 
-## Basic Configuration
+## Basic Configuration ##
 
 ```sh
 git config --global user.name "Gudmundur Bogason"
@@ -34,7 +34,7 @@ git config --list
 export GIT_EDITOR=...
 ```
 
-## Enable RCS keywords
+## Enable RCS keywords ##
 
 ```sh
 # Create RCS keyword filters and make them executeable
@@ -74,9 +74,9 @@ $Revision: 55600e6 $
 ```
 
 
-# Generate SSH Keys
+# Generate SSH Keys #
 
-## Local server
+## Local server ##
 
 ```sh
 # Generate a new SSH key
@@ -86,7 +86,7 @@ ssh-keygen -t rsa -C "gb@192.168.0.100"
 scp /home/gb/.ssh/id_rsa.pub gb@192.168.0.100:/home/gb/.ssh/authorized_keys
 ```
 
-## GitHub
+## GitHub ##
 
 ```sh
 # Generate a new SSH key
@@ -100,7 +100,7 @@ ssh -T git@github.com
 ```
 
 
-# Misc
+# Misc #
 
 ```sh
 # File State
@@ -115,7 +115,7 @@ Repository          git commit ...
 ```
 
 
-# Internal organization
+# Internal organization #
 
 ```sh
 BRANCH  => commit
@@ -130,7 +130,7 @@ blob
 ```
 
 
-# Plumbing commands
+# Plumbing commands #
 
 ```sh
 # Compute object ID from a file.
@@ -170,7 +170,7 @@ git ls-files -i
 ```
 
 
-# Local repository
+# Local repository #
 
 ```sh
 # Initialize new repository
@@ -238,7 +238,7 @@ git show
 ```
 
 
-# Branch
+# Branch #
 
 ```sh
 # Show existing branches
@@ -287,7 +287,7 @@ git branch --no-merged
 ```
 
 
-# Tag
+# Tag #
 
 ```sh
 # Show existing tags
@@ -319,7 +319,7 @@ git describe --tags --always
 ```
 
 
-# Patching
+# Patching #
 
 ```sh
 # Create a series of patches with all history for the git_* files and place in the folder ~/patches
@@ -333,7 +333,7 @@ git push origin master
 ```
 
 
-# Stash
+# Stash #
 
 ```sh
 # ...
@@ -344,7 +344,7 @@ git stash pop
 ```
 
 
-# Move project onto server
+# Move project onto server #
 
 ```sh
 # Either create a bare project from scratch
@@ -358,7 +358,7 @@ mv foo.git /mnt/data1/git
 ```
 
 
-# Remote repositories
+# Remote repositories #
 
 ```sh
 # Clone an existing repository
@@ -382,9 +382,9 @@ git push origin :br1
 ```
 
 
-# Workflows
+# Workflows #
 
-## Master Branch
+## Master Branch ##
 
 ```sh
 # Get the latest master branch
@@ -410,7 +410,7 @@ git rebase --continue
 git push origin master
 ```
 
-## Feature Branch
+## Feature Branch ##
 
 ```sh
 # Get the latest master branch
@@ -445,4 +445,37 @@ git merge --no-ff wrk
 
 # Update master branch
 git push origin master
+```
+
+## Merge one repo into another with history ##
+```bash
+cd ed_pi_io
+git remote add foo https://github.com/embed-dsp/ed_pi.git
+git fetch foo
+
+warning: no common commits
+remote: Counting objects: 41, done.
+remote: Compressing objects: 100% (31/31), done.
+remote: Total 41 (delta 12), reused 38 (delta 9), pack-reused 0
+Unpacking objects: 100% (41/41), done.
+From https://github.com/embed-dsp/ed_pi
+ * [new branch]      master     -> foo/master
+
+git merge --allow-unrelated-histories foo/master
+
+Auto-merging README.md
+CONFLICT (add/add): Merge conflict in README.md
+Auto-merging LICENSE
+CONFLICT (add/add): Merge conflict in LICENSE
+Automatic merge failed; fix conflicts and then commit the result.
+
+edit README.md ...
+edit LICENSE ...
+
+git add README.md
+git add LICENSE
+
+git commit -m "Merged ed_pi repo into ed_pi_io repo."
+
+git remote remove foo
 ```
