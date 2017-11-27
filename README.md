@@ -218,6 +218,12 @@ git rm --cached <file>
 # Get status
 git status
 
+# ...
+git show
+```
+
+## Commit Log ##
+```sh
 # View commit history
 git log
 
@@ -232,11 +238,7 @@ git log --oneline --decorate --graph
 
 # View commit history with patch
 git log -p
-
-# ...
-git show
 ```
-
 
 # Branch #
 
@@ -447,10 +449,10 @@ git merge --no-ff wrk
 git push origin master
 ```
 
-## Merge one repo into another with history ##
+## Merge repo A into repo B with history ##
 ```bash
-cd ed_pi_io
-git remote add foo https://github.com/embed-dsp/ed_pi.git
+cd B
+git remote add foo https://github.com/embed-dsp/A.git
 git fetch foo
 
 warning: no common commits
@@ -458,7 +460,7 @@ remote: Counting objects: 41, done.
 remote: Compressing objects: 100% (31/31), done.
 remote: Total 41 (delta 12), reused 38 (delta 9), pack-reused 0
 Unpacking objects: 100% (41/41), done.
-From https://github.com/embed-dsp/ed_pi
+From https://github.com/embed-dsp/A
  * [new branch]      master     -> foo/master
 
 git merge --allow-unrelated-histories foo/master
@@ -475,7 +477,7 @@ edit LICENSE ...
 git add README.md
 git add LICENSE
 
-git commit -m "Merged ed_pi repo into ed_pi_io repo."
+git commit -m "Merged repo A into repo B."
 
 git remote remove foo
 ```
