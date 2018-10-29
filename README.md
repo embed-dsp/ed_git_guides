@@ -1,7 +1,7 @@
 
-# Configuration Files #
+# Configuration Files
 
-## Location ##
+## Location
 
 ```sh
 --system
@@ -14,7 +14,7 @@
     .git/config
 ```
 
-## Basic Configuration ##
+## Basic Configuration
 
 ```sh
 git config --global user.name "Gudmundur Bogason"
@@ -34,7 +34,7 @@ git config --list
 export GIT_EDITOR=...
 ```
 
-## Enable RCS keywords ##
+## Enable RCS keywords
 
 ```sh
 # Create RCS keyword filters and make them executeable
@@ -74,33 +74,35 @@ $Revision: 55600e6 $
 ```
 
 
-# Generate SSH Keys #
+# Generate SSH Keys
 
-## Local server ##
-
-```sh
-# Generate a new SSH key
-ssh-keygen -t rsa -C "gb@192.168.0.100"
-
-# Add your SSH key to kenny
-scp /home/gb/.ssh/id_rsa.pub gb@192.168.0.100:/home/gb/.ssh/authorized_keys
-```
-
-## GitHub ##
+## Local Computer
 
 ```sh
 # Generate a new SSH key
 ssh-keygen -t rsa -C "gb@embed-dsp.com"
 
-# Add your SSH key to GitHub
-kenny ...
+# Add SSH key to the ssh-agent
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_rsa
+```
 
-# Test everything out
+## GitHub
+
+```sh
+# Add your SSH key to GitHub
+https://github.com/settings/keys
+
+New SSH key
+  Title: kenny: gb@embed-dsp.com
+  Key:   <paste in the content of ~/.ssh/id_rsa.pub>
+
+# Test SSH connection with GitHub
 ssh -T git@github.com
 ```
 
 
-# Misc #
+# Misc
 
 ```sh
 # File State
@@ -115,7 +117,7 @@ Repository          git commit ...
 ```
 
 
-# Internal organization #
+# Internal organization
 
 ```sh
 BRANCH  => commit
@@ -130,7 +132,7 @@ blob
 ```
 
 
-# Plumbing commands #
+# Plumbing commands
 
 ```sh
 # Compute object ID from a file.
@@ -170,7 +172,7 @@ git ls-files -i
 ```
 
 
-# Local repository #
+# Local repository
 
 ```sh
 # Initialize new repository
@@ -203,7 +205,7 @@ git commit -m "..."
 # Commit changes (files are staged automatically)
 git commit -a -m "..."
 
-# Undo previous commit ...
+# Change the last commit message ...
 git commit --amend -m "..."
 
 # Rename/Move
@@ -222,7 +224,8 @@ git status
 git show
 ```
 
-## Commit Log ##
+## Commit Log
+
 ```sh
 # View commit history
 git log
@@ -240,7 +243,7 @@ git log --oneline --decorate --graph
 git log -p
 ```
 
-# Branch #
+# Branch
 
 ```sh
 # Show existing branches
@@ -286,10 +289,16 @@ git branch --merged
 
 # Show which branches have not been merged in
 git branch --no-merged
+
+# Copy file from one branch to another.
+git show <branch>:path/to/file > path/to/file
+
+# Copy file from one branch to another and add to index.
+git checkout <branch> path/to/file
 ```
 
 
-# Tag #
+# Tag
 
 ```sh
 # Show existing tags
@@ -313,15 +322,26 @@ git show rel_0.1.0
 # Checkout a specific tag
 git checkout rel_0.1.0
 
-# Push tags to remote repository
+# Push all tags to remote repository
 git push --tags
+
+# Push specific <tag> to remote repository
+git push origin <tag>
 
 # Show the most recent tag that is reachable from a commit
 git describe --tags --always
 ```
 
 
-# Patching #
+# Rewrite History
+
+```sh
+# Rewrite history for the last 2 commits.
+git rebase -i HEAD~2
+```
+
+
+# Patching
 
 ```sh
 # Create a series of patches with all history for the git_* files and place in the folder ~/patches
@@ -335,18 +355,33 @@ git push origin master
 ```
 
 
-# Stash #
+# Stash
 
 ```sh
-# ...
-git stash save
+# List the stash entries that you currently have.
+git stash list
+
+# Save your local modifications to a new stash entry 
+# and roll them back to HEAD (in the working tree and in the index).
+git stash save  # DEPRECATED
+
+# Save your local modifications to a new stash entry 
+# and roll them back to HEAD (in the working tree and in the index).
+git stash push
+
+# Remove a single stashed state from the stash list and apply it on top of the 
+# current working tree state, i.e., do the inverse operation of git stash save.
+git stash pop
+
+# Like pop, but do not remove the state from the stash list.
+git stash apply
 
 # ...
-git stash pop
+git stash drop
 ```
 
 
-# Move project onto server #
+# Move project onto server
 
 ```sh
 # Either create a bare project from scratch
@@ -360,7 +395,7 @@ mv foo.git /mnt/data1/git
 ```
 
 
-# Remote repositories #
+# Remote repositories
 
 ```sh
 # Clone an existing repository
@@ -384,9 +419,9 @@ git push origin :br1
 ```
 
 
-# Workflows #
+# Workflows
 
-## Master Branch ##
+## Master Branch
 
 ```sh
 # Get the latest master branch
@@ -412,7 +447,7 @@ git rebase --continue
 git push origin master
 ```
 
-## Feature Branch ##
+## Feature Branch
 
 ```sh
 # Get the latest master branch
@@ -449,7 +484,8 @@ git merge --no-ff wrk
 git push origin master
 ```
 
-## Merge repo A into repo B with history ##
+# Merge repo A into repo B with history
+
 ```bash
 cd B
 git remote add foo https://github.com/embed-dsp/A.git
