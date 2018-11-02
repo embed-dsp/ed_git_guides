@@ -301,34 +301,37 @@ git checkout <branch> path/to/file
 # Tag
 
 ```sh
-# Show existing tags
+# Show existing tags.
 git tag
 
-# Show all tags from release rel_1.0.*
-git tag -l 'rel_1.0.*'
+# Show all tags from release 1.0.*
+git tag -l '1.0.*'
 
-# Create an annotated tag
-git tag -a rel_0.1.0 -m "..."
+# Create an annotated tag.
+git tag -a 0.1.0 -m "..."
 
-# Delete tag
-git tag -d rel_0.1.0
+# Create an annotated tag for a specific commit.
+git tag -a 0.1.0 -m "..." 521daff
 
-# Delete tag from remote repository
-git push origin :refs/tags/rel_0.1.0
+# Delete tag.
+git tag -d 0.1.0
 
-# Show tag details
-git show rel_0.1.0
+# Show tag details.
+git show 0.1.0
 
-# Checkout a specific tag
-git checkout rel_0.1.0
+# Checkout a specific tag.
+git checkout 0.1.0
 
-# Push all tags to remote repository
+# Push all tags to remote repository.
 git push --tags
 
-# Push specific <tag> to remote repository
-git push origin <tag>
+# Push specific tag to remote repository.
+git push origin 0.1.0
 
-# Show the most recent tag that is reachable from a commit
+# Delete tag from remote repository.
+git push origin :refs/tags/0.1.0
+
+# Show the most recent tag that is reachable from a commit.
 git describe --tags --always
 ```
 
