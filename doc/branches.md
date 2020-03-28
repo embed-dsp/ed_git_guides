@@ -8,6 +8,9 @@ git branch
 
 # Show existing branches with the last commit
 git branch -v
+
+# Show local and remote branches
+git branch -a
 ```
 
 ## Create & Checkout
@@ -24,11 +27,14 @@ git checkout br1
 
 ## Delete
 ```sh
-# Delete branch
+# Delete local branch
 git branch -d br1
 
-# Delete branch and force removal of commit if not referenced anymore
+# Delete local branch and force removal of commit if not referenced anymore
 git branch -D br1
+
+# Delete remote branch: remote/origin/br1
+git push origin --delete br1
 ```
 
 ## Changes
