@@ -74,7 +74,8 @@ New SSH key
   Key:   <paste in the content of ~/.ssh/id_rsa.pub>
 ```
 
+
+## Test SSH connection with GitHub
 ```sh
-# Test SSH connection with GitHub
 ssh -T git@github.com
 ```
