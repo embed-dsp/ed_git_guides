@@ -16,6 +16,7 @@
 * [Log](doc/log.md)
 * [History](doc/history.md)
 * [Patching](doc/patching.md)
+* [Submodules](doc/submodules.md)
 
 ## Remote Repositories
 * [Remote Basics](doc/remote_basics.md)
