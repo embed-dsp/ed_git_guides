@@ -39,8 +39,8 @@ git push origin --delete br1
 
 ## Changes
 ```sh
-# See what has changed between the current branch br1 and the master branch
-git diff master
+# See what has changed between the branch br1 and the master branch
+git diff br1 master
 
 # See what has changed for the file foo.c between the branch br1 and the master branch
 git diff br1 master -- foo.c
@@ -66,11 +66,9 @@ git branch --merged
 git branch --no-merged
 ```
 
-## ...
+## Copy file between branches
 ```sh
 # Copy file from one branch to another.
 git show <branch>:path/to/file > path/to/file
-
-# Copy file from one branch to another and add to index.
-git checkout <branch> path/to/file
 ```
+
