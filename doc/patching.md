@@ -10,6 +10,9 @@ git format-patch -o ~/patches --root git_*
 ```sh
 # Applay a series of patches from the folder ~/patches
 git am ~/patches/*
+
+# Apply patches from the foo.diff file
+git apply foo.diff
 ```
 
 ```sh
